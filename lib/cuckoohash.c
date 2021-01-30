@@ -503,9 +503,10 @@ Cleanup:
 
 cuckoo_status cuckoo_exit(cuckoo_hashtable_t* h) {
     pthread_mutex_destroy(&h->lock);
-    free(h->buckets);
-    free(h->keyver_array);
-    free(h);
+	free(h->cuckoo_path);
+	free(h->keyver_array);
+	free(h->buckets);
+	free(h);
     return ok;
 }
 
